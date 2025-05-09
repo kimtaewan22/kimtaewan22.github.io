@@ -1,0 +1,125 @@
+.aboutSection {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  padding-top: 7vh;
+  padding-bottom: 5vh;
+  animation: fadeIn 1.2s;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profileImgWrap {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+.profileImg {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 16px rgba(255, 182, 155, 0.18);
+}
+
+.name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #6B4F4F;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+.intro {
+  font-size: 1.1rem;
+  color: #B08968;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.infoBlocks {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.infoBlock {
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(255, 182, 155, 0.10);
+  color: #6B4F4F;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s;
+}
+
+.infoBlock:hover {
+  box-shadow: 0 4px 24px rgba(255, 182, 155, 0.18);
+}
+
+.blockTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFB4A2;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.blockContent {
+  font-size: 1.08rem;
+  color: #6B4F4F;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.period {
+  font-size: 0.95rem;
+  color: #B08968;
+  margin-left: 0.5rem;
+}
+
+.paperType {
+  font-size: 0.92rem;
+  color: #000000;
+  margin-right: 0.4rem;
+}
+
+.softwareDesc {
+  font-size: 0.98rem;
+  color: #B08968;
+  margin-left: 0.2rem;
+}
+
+.link {
+  color: #FFB4A2;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+  font-size: 0.98rem;
+  transition: color 0.2s;
+}
+.link:hover {
+  color: #fff;
+} 

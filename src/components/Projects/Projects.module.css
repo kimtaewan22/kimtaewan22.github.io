@@ -1,0 +1,83 @@
+.projects {
+  min-height: 100vh;
+  height: 100vh;
+  padding: 0;
+  background-color: var(--background-color);
+  overflow-x: hidden;
+  overflow-y: hidden !important;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.projectsContainer {
+  width: 100vw;
+  max-width: 100vw;
+  height: calc(100vh - 48px); /* Reserve space for arrow */
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.scroll-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  z-index: 10;
+  height: 32px;
+  pointer-events: none;
+}
+
+.projectCard {
+  min-width: 320px;
+  max-width: 360px;
+  max-height: 420px;
+  flex: 0 0 auto;
+  background: var(--card-background);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  align-items: center;
+  width: 100%;
+}
+
+.techItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-color);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} 

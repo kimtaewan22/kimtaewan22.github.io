@@ -1,0 +1,82 @@
+.skillsSection {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  padding-top: 7vh;
+  padding-bottom: 5vh;
+  animation: fadeIn 1.2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.skillsTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #6B4F4F;
+  margin-bottom: 2rem;
+}
+
+.skillsGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* gap: 2.2rem; */ /* <-- 기존 값 */
+  gap: 1.5rem; /* <-- gap 값을 줄여보세요. 필요시 더 작게 (예: 1rem) */
+
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px; /* <-- 필요하다면 이 값을 늘리거나 제거하여 그리드 컨테이너 너비 늘리기 */
+  /* ... (하위 스타일 유지) ... */
+}
+.skillCard {
+  display: flex;
+  /* flex-direction: column; */ /* <-- 이 줄을 제거 또는 주석 처리 */
+  flex-direction: row; /* <-- 아이콘과 이름을 가로로 배치하도록 변경 */
+
+  align-items: center; /* 아이콘과 이름을 수직 가운데 정렬 */
+  justify-content: flex-start; /* 아이콘과 이름을 왼쪽부터 정렬 (필요시 center 등 변경) */
+
+  /* min-width: 70px; */ /* 필요에 따라 최소/최대/고정 너비 조절 */
+  /* max-width: 120px; */
+  width: auto; /* 콘텐츠 너비에 맞게 */
+
+  gap: 0.8rem; /* <-- 아이콘과 이름 사이의 가로 간격 조절 */
+  /* 기존 0.3rem에서 0.8rem으로 증가 (예시) */
+
+  /* 배경, 보더, 그림자 등 제거된 스타일은 그대로 유지 */
+  background: none;
+  color: #e0e0e0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0; /* 전역 CSS에서 0 !important로 설정되어 있을 수 있음 */
+
+  /* 필요하다면 카드 자체에 좌우 패딩을 조금 추가하여 내용이 붙지 않도록 */
+  /* padding: 0 0.5rem; */
+}
+
+.skillCard:hover {
+  box-shadow: 0 4px 24px rgba(255, 182, 155, 0.18);
+}
+
+.skillIcon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.10));
+  background: transparent;
+}
+
+.skillName {
+  font-size: 1.08rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  margin-top: 0;
+} 
