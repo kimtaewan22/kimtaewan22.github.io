@@ -42,6 +42,7 @@ const About = () => {
               {profile.education.map((edu, i) => (
                 <div key={i}>
                   {edu.school}<br />
+                  {edu.major}<br />
                   <span className={styles.period}>{edu.period}</span>
                 </div>
               ))}
@@ -91,7 +92,7 @@ const About = () => {
               {profile.papers.map((paper, i) => (
                 <div key={i}>
                   <span className={styles.paperType}>[{paper.type}]</span>
-                  {paper.title} ({paper.journal})
+                  {paper.title} ({paper.journal}) ({paper.date}) {paper.index && `(${paper.index})`}
                   {paper.url && <a href={paper.url} className={styles.link}>링크</a>}
                 </div>
               ))}

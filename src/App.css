@@ -1,10 +1,8 @@
 /* 기존 #root 스타일 - 그대로 유지 */
 #root {
-  /* max-width: 1280px; /* 이 부분은 전체 너비를 100%로 할 것이므로 필요 없을 수 있습니다 */
   margin: 0 auto;
   padding: 0; /* 전체 패딩 제거 */
   text-align: center; /* 전체 텍스트 중앙 정렬 (필요에 따라 제거) */
-  /* 그라데이션을 body에 적용할 것이므로 #root에는 배경 설정을 하지 않습니다 */
   width: 100%; /* 너비 100% 사용 */
   max-width: 100%; /* 최대 너비 100% 사용 */
 }
@@ -55,7 +53,6 @@ html, body, #root, .App, .sections {
   max-width: 100% !important;
   margin: 0 !important;
   box-sizing: border-box;
-  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
 /* 스크롤 동작 설정 - 그대로 유지 */
@@ -74,27 +71,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* var(--background-color), var(--text-color) 변수를 사용한다면 정의 필요 */
-  /* color: var(--text-color); */
-
-  /* 텍스트 기본 색상 (배경에 따라 조정) */
   color: #e0e0e0; /* 예시: 어두운 배경에 맞는 밝은 색 */
 
-  overflow-x: hidden; /* 가로 스크롤 방지 */
-
-  /* 기존 단색 배경 제거 */
-  /* background: #23243a; */
-
-  /* 여기에 그라데이션 배경 적용 */
-  /* 예시: 상단에서 하단으로, 어두운 색에서 시작하여 조금 더 밝은 색들을 거쳐 끝나는 그라데이션 */
   background: linear-gradient(to bottom,
     #23243a 0%,    /* 시작 색상 */
     #2c2f36 50%,   /* 중간 색상 */
     #23272f 100%   /* 끝 색상 */
   );
-  /* 원하는 시작 색상, 중간 색상(선택 사항), 끝 색상, 그리고 위치(%)를 수정하세요 */
-  /* 방향 (to top, to right, to bottom right 등)도 수정 가능 */
-
+  overflow-x: hidden;
 
   min-height: 100vh; /* 최소 높이를 100vh로 설정하여 그라데이션이 전체 화면 최소한을 덮도록 함 */
 
@@ -115,10 +99,7 @@ body {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
-  /* padding: 0 !important; /* 섹션 내부 콘텐츠 패딩은 개별 컴포넌트에서 관리 */
   box-sizing: border-box;
-  overflow-x: hidden;
-  /* 여기에 배경색 설정하면 전체 그라데이션이 보이지 않음 */
   background: none !important; /* 혹시 모를 다른 배경 설정을 강제로 제거 */
 }
 
@@ -151,21 +132,16 @@ body {
 
   /* 공통적으로 필요한 스타일만 남김 */
   color: #e0e0e0; /* 텍스트 색상 유지 */
-  /* transition: box-shadow 0.2s, transform 0.2s; */ /* 필요에 따라 호버 애니메이션 조정 */
 }
 
 /* 개별 카드/블록의 하단 마진은 유지할 수 있습니다 (필요시) */
 .projectCard, .aboutCard, .skillsCard, .contactCard {
    margin-bottom: 2rem; /* 섹션 내 블록 간 하단 마진 */
-   /* 내용을 가운데로 모으고 싶다면 max-width 및 margin-left/right: auto 추가 */
-   /* max-width: 800px; */ /* 예시 */
-   /* margin-left: auto !important; margin-right: auto !important; */ /* 예시 */
 }
 
 
 /* 카드 호버 스타일 (그림자/배경 관련 제거) */
 .projectCard:hover, .aboutCard:hover, .skillsCard:hover, .contactCard:hover {
-  /* box-shadow: 0 8px 32px rgba(0,0,0,0.32); */ /* 그림자 효과 제거 */
   transform: translateY(-4px) scale(1.01); /* 위로 살짝 뜨는 효과 유지 */
 }
 
@@ -175,16 +151,16 @@ img, iframe {
   width: 100% !important;
   box-sizing: border-box;
   display: block;
-  /* background: transparent !important; /* 혹시 모를 배경 제거 */
 }
 
 
 /* 네비게이션 바 스타일 - 그대로 유지 */
+/* Navbar styles */
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
+  position: sticky; /* 상단에 고정 */
+  top: 0; /* 화면 최상단에 붙임 */
+  z-index: 100; /* 다른 콘텐츠 위에 오도록 z-index 설정 */
+  display: flex; /* 또는 원래 레이아웃에 맞는 display 속성 */
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
@@ -199,6 +175,41 @@ img, iframe {
   margin: 0;
   max-width: none;
 }
+
+/* Style for the Velog link */
+.navbar-velog-link {
+  position: absolute; /* Keep absolute positioning */
+  left: 20px; /* Keep positioning from the left */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 101; /* Ensure it's above other nav items */
+
+  /* --- Button with Border styling --- */
+  background-color: transparent; /* <<< Set background to transparent >>> */
+  color: #4f8cff; /* <<< Set text color (example, match border color) >>> */
+  border: 2px solid #4f8cff; /* <<< Add border (adjust thickness, style, color) >>> */
+  text-decoration: none; /* Remove underline */
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 0.4rem 1.2rem; /* Keep padding for shape */
+  border-radius: 20px; /* Keep border-radius for oval shape */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* --- End Button with Border styling --- */
+
+  /* Keep transition for hover effect - add border-color */
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s; /* Add border-color to transition */
+  box-sizing: border-box;
+}
+
+.navbar-velog-link:hover {
+  background-color: rgba(79, 140, 255, 0.1); /* Optional: Light background fill on hover */
+  color: #fff; /* Change text color on hover */
+  border-color: #fff; /* Change border color on hover */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Add subtle shadow on hover */
+}
+
 
 /* 네비게이션 로고/링크 스타일 - 그대로 유지 */
 .navbar-logo {
@@ -304,11 +315,16 @@ h2 {
 /* 스킬 목록 스타일 - 그대로 유지 */
 .simple-skills-list {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 2.2rem 2.5rem;
   justify-content: center;
   align-items: center;
   margin-top: 2.5rem;
+
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .simple-skill {
@@ -317,6 +333,9 @@ h2 {
   align-items: center;
   gap: 0.5rem;
   min-width: 70px;
+
+  padding: 10px;
+
 }
 
 .simple-skill img {
@@ -333,4 +352,72 @@ h2 {
   margin-top: 0.2rem;
   font-weight: 500;
   letter-spacing: 0.01em;
+}
+
+
+
+body.show-navbar .navbar {
+  display: flex; /* Or block */
+  /* If using opacity: */
+  /* opacity: 1; */
+  transform: translateY(0); /* Slide into view */
+}
+
+#about {
+  margin-top: 40vh !important; /* Intro 섹션의 높이만큼 아래로 내림 */
+}
+
+@media (max-width: 768px) { /* 화면 너비가 768px 이하일 때 적용 */
+
+  .navbar {
+    /* ... 기존 모바일 네비게이션 바 조정 (padding, gap) ... */
+    padding: 1.1rem 0.5rem; /* 예시: 좌우 패딩 */
+    gap: 0.5rem; /* 예시: 메인 항목 간 gap */
+    justify-content: center; /* 메뉴만 남았을 때 중앙 정렬 */
+  }
+
+  /* --- 모바일에서 Velog 링크 숨기기 --- */
+  .navbar-velog-link {
+    display: none; /* <<< Velog 링크를 화면에서 숨깁니다. >>> */
+    /* 숨겨지므로 기존 모바일 위치/크기 스타일은 사실상 무효화됩니다. */
+    /* left: 5px; */
+    /* padding: 0.2rem 0.6rem; */
+    /* font-size: 0.9rem; */
+    /* border-radius: 12px; */
+  }
+
+  /* --- 모바일에서 Taewan 로고 숨기기 --- */
+  .navbar-logo {
+    display: none; /* <<< Taewan 로고를 화면에서 숨깁니다. >>> */
+    /* 숨겨지므로 기존 모바일 마진/폰트 크기 스타일은 무효화됩니다. */
+    /* margin-right: 0.8rem; */
+    /* font-size: 1rem; */
+    /* margin-left: 60px; // 이 마진도 로고가 숨겨지므로 필요 없어집니다. */
+  }
+
+  /* 네비게이션 메뉴 컨테이너 (About, Skills 등 링크 포함) */
+  .navbar-menu {
+    /* ... 기존 모바일 메뉴 조정 (gap) ... */
+    gap: 0.6rem; /* 메뉴 항목 간 gap */
+
+    /* 로고와 Velog 링크가 숨겨졌으므로, 메뉴가 남은 공간을 차지하고 중앙에 와야 합니다. */
+    /* navbar의 justify-content: center;가 메뉴를 중앙에 놓도록 돕습니다. */
+    /* 메뉴 자체의 너비를 100%로 설정하여 공간을 모두 차지하도록 합니다. */
+    width: 100%; /* <<< 너비를 100%로 설정 >>> */
+    margin-left: 0; /* <<< 혹시 남아있을 수 있는 왼쪽 마진 제거 >>> */
+    justify-content: center; /* <<< 메뉴 내부의 링크들을 중앙 정렬합니다. >>> */
+  }
+
+  /* 개별 네비게이션 링크 (navbar-menu 안의 a 태그) 스타일 조정 */
+   .navbar-menu a {
+     /* ... 기존 모바일 링크 조정 (padding, font-size) ... */
+     padding: 0.3rem 0.6rem;
+     font-size: 0.9rem;
+   }
+
+   .sections > section {
+    padding: 5vh 0.05rem; /* <<< 좌우 패딩을 1.5rem으로 줄임 (필요시 더 작게 조정하세요, 예: 1rem) >>> */
+    /* 상하 패딩 (5vh)는 그대로 유지하거나 필요시 조정 */
+  }
+
 }

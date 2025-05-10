@@ -55,9 +55,10 @@
 
 .projectHeader {
   display: flex;
+  flex-direction: column; /* 자식 요소들(h3, span)을 세로 방향으로 쌓습니다. */
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
 }
 
 .projectCategory {
@@ -67,8 +68,13 @@
   margin: 2.5rem 0 1.2rem 0;
 }
 
+.projectHeader h3 {
+  margin-bottom: 0.5rem; /* <<< Add margin below title (adjust value for desired space) >>> */
+  /* Keep other h3 styles */
+}
+
 .projectPeriod {
-  font-size: 0.98rem;
+  font-size: 0.9rem;
   color: #B08968;
 }
 

@@ -1,17 +1,21 @@
+/* src/components/Contact.module.css */
+
+/* Contact 섹션 전체 컨테이너 */
 .contactSection {
   min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: transparent; /* 섹션 배경은 투명하게 유지 또는 상위 컴포넌트/전역 스타일에서 관리 */
-  padding: 0; /* 필요에 따라 조절 가능 */
+  justify-content: center; /* 내용을 세로 중앙 정렬 */
+  align-items: center; /* 내용을 가로 중앙 정렬 */
+  background: transparent; /* 섹션 배경은 투명하게 유지 (전역 배경 사용) */
+  padding: 0; /* 섹션 자체의 패딩은 0 또는 최소화 */
   box-sizing: border-box;
-  animation: fadeIn 1.2s;
-  /* Contact Content 블록과 Map 블록 사이의 간격을 조절합니다 */
-  gap: 2.5rem; /* 예시 값, 필요에 따라 조절하세요 */
-  padding-bottom: 3rem; /* 맨 아래 지도 아래 여백 추가 */
+  animation: fadeIn 1.2s; /* 페이드인 애니메이션 유지 */
+
+  /* contactContent 블록과 mapWrap 블록 사이의 간격 */
+  gap: 3rem; /* 예시 값, 필요에 따라 조절하여 두 주요 블록 사이 공간 확보 */
+  padding-bottom: 4rem; /* 섹션 하단 여백 추가 */
 }
 
 @keyframes fadeIn {
@@ -19,115 +23,168 @@
   to { opacity: 1; transform: translateY(0);}
 }
 
-/*
-  .contactCard, .contactContent { ... }
-  기존 contactCard와 contactContent에 적용되던
-  카드 형태(배경색, 그림자, 테두리 반경, 패딩 등) 관련 스타일은 제거됩니다.
-*/
-
+/* Contact 섹션의 내용 컨테이너 (제목, 링크, 이메일 포함) */
 .contactContent {
-  color: #e0e0e0; /* 텍스트 색상은 배경에 맞게 유지하거나 조정 */
-  text-align: center; /* 내용 중앙 정렬 유지 */
-  /* 카드 관련 스타일(background, border-radius, box-shadow, padding, max-width, margin) 모두 제거 */
+  color: #e0e0e0; /* 텍스트 기본 색상 유지 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  /* 기존 카드 형태 관련 스타일(배경, 그림자 등)은 전역에서 제거되었으므로 여기에는 없습니다. */
 }
 
-
+/* 섹션 제목 스타일 */
 .title {
-  font-size: 2.7rem;
+  font-size: 2.8rem; /* 제목 글자 크기 약간 키움 */
   font-weight: 700;
   letter-spacing: 0.04em;
   color: #fff; /* 제목 색상 유지 */
-  margin-bottom: 1.5rem; /* 링크들과 제목 사이 간격 조정 */
+  margin-bottom: 2.5rem; /* 제목과 아래 링크들 사이 간격 증가 */
 }
 
+/* 링크들을 담는 행 컨테이너 */
 .linksRow {
   display: flex;
-  gap: 2.5rem; /* 링크 아이템 간 간격 */
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 1.5rem; /* 링크 줄과 이메일 줄 사이 간격 */
+  gap: 2rem; /* 링크 아이템 간 간격 조정 */
+  flex-wrap: wrap; /* 작은 화면에서 링크들이 줄바꿈되도록 함 */
+  justify-content: center; /* 링크 아이템들을 가로 중앙 정렬 */
+  margin-bottom: 2rem; /* 링크 행과 이메일 행 사이 간격 조정 */
 }
 
+/* --- 각 링크 아이템 스타일 (Lab, Kakao, GitHub) --- */
 .linksRow a {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
+  display: flex; /* 아이콘과 텍스트를 가로로 나열 */
+  align-items: center; /* 아이콘과 텍스트를 세로 중앙 정렬 */
+  gap: 0.8rem; /* 아이콘과 텍스트 사이 간격 약간 늘림 */
   font-size: 1.1rem;
   color: #e0e0e0; /* 기본 링크 색상 */
-  text-decoration: none;
+  text-decoration: none; /* 밑줄 제거 */
   font-weight: 500;
-  /* 카드 내 패딩 제거, 배경에 직접 표시되므로 패딩 필요 없거나 최소화 */
-  padding: 0;
-  /* 카드 내 테두리 반경 제거 */
-  border-radius: 0;
-  /* 배경 효과 제거에 따라 transition 속성 변경 */
-  transition: color 0.2s ease-in-out; /* 호버 시 색상 변화만 부드럽게 */
+
+  /* 링크 영역에 시각적인 구분을 위한 스타일 추가 */
+  background-color: rgba(255,255,255,0.08); /* 약간 투명한 배경색 */
+  padding: 0.8rem 1.5rem; /* <<< 상하, 좌우 패딩 추가 (클릭 영역 넓히고 모양 만들기) >>> */
+  border-radius: 10px; /* <<< 모서리 둥글게 만들기 >>> */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* <<< 은은한 그림자 추가 >>> */
+
+  /* 호버 및 트랜지션 효과 */
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* 호버 시 배경색 효과 제거, 텍스트 색상 효과만 남김 */
+/* 링크 아이템 호버 스타일 */
 .linksRow a:hover {
-  /* background: #FFD6A5; */ /* 배경 효과 제거 */
   color: #FFD6A5; /* 호버 시 텍스트 색상 변경 (예시 색상) */
-  /* box-shadow: 0 2px 12px rgba(255, 182, 155, 0.08); */ /* 그림자 효과 제거 */
+  background-color: rgba(255,255,255,0.15); /* 호버 시 배경색 약간 더 밝게 */
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2); /* 호버 시 그림자 강조 */
 }
+/* --- 각 링크 아이템 스타일 끝 --- */
 
 
+/* 링크 아이템 내부 이미지 (아이콘) 스타일 */
 .linksRow img {
   width: 26px;
   height: 26px;
+  /* filter: brightness(0) invert(1); /* 아이콘 색상을 반전시켜 배경에 잘 보이게 할 수도 있습니다 */
 }
 
+/* 이메일 정보를 담는 행 컨테이너 */
 .emailRow {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
+  display: flex; /* 아이콘과 텍스트를 가로로 나열 */
+  align-items: center; /* 아이콘과 텍스트를 세로 중앙 정렬 */
+  gap: 0.8rem; /* 아이콘과 텍스트 사이 간격 */
   font-size: 1.1rem;
   color: #e0e0e0; /* 이메일 텍스트 색상 */
-  margin-top: 0.5rem; /* 필요하다면 위 마진 조정 */
-  justify-content: center; /* 이메일 줄도 중앙 정렬 */
+  justify-content: center; /* 내용을 가로 중앙 정렬 */
+  margin-top: 1rem; /* 위 마진 조정 (linksRow와의 간격) */
+
+  /* 이메일 정보 영역에 시각적인 구분을 위한 스타일 추가 (클릭 가능하게 만들 예정이라면 cursor: pointer 추가) */
+  background-color: rgba(255,255,255,0.08); /* 약간 투명한 배경색 */
+  padding: 0.8rem 1.5rem; /* <<< 상하, 좌우 패딩 추가 >>> */
+  border-radius: 10px; /* <<< 모서리 둥글게 만들기 >>> */
+  box-shadow: 0 1px 8px rgba(0,0,0,0.1); /* <<< 은은한 그림자 추가 >>> */
+  cursor: pointer; /* <<< 클릭 가능함을 시각적으로 표시 >>> */
+
+  /* 호버 및 트랜지션 효과 */
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+/* 이메일 정보 영역 호버 스타일 */
+.emailRow:hover {
+  background-color: rgba(255,255,255,0.15); /* 호버 시 배경색 약간 더 밝게 */
+  color: #FFD6A5; /* 호버 시 텍스트 색상 변경 (예시 색상) */
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2); /* 호버 시 그림자 강조 */
+}
+
+/* 이메일 정보 내부 이미지 (아이콘) 스타일 */
 .emailRow img {
   width: 22px;
   height: 22px;
+   /* filter: brightness(0) invert(1); /* 아이콘 색상을 반전시켜 배경에 잘 보이게 할 수도 있습니다 */
 }
 
+
+/* 지도 컨테이너 */
 .mapWrap {
-  width: 90vw; /* 지도의 최대 너비 */
+  width: 90vw; /* 지도의 기본 너비 */
   max-width: 700px; /* 지도의 최대 너비 제한 */
-  margin: 0 auto; /* contactContent 아래에 바로 오도록 margin-top 0으로 변경, 가운데 정렬 */
-  border-radius: 18px; /* 지도 테두리 반경 */
-  overflow: hidden;
-  box-shadow: 0 2px 24px rgba(35,36,58,0.18); /* 지도 그림자는 유지 */
+  margin: 0 auto; /* 가로 중앙 정렬 */
+  border-radius: 18px; /* 지도 iframe의 둥근 모서리 */
+  overflow: hidden; /* 둥근 모서리 밖으로 넘치는 내용 숨김 */
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25); /* 지도 그림자 좀 더 진하게 */
 }
 
 /* 모바일 등 작은 화면을 위한 반응형 스타일 */
 @media (max-width: 768px) {
     .contactSection {
-        gap: 2rem; /* 작은 화면에서의 간격 조정 */
+        gap: 2.5rem; /* 작은 화면에서의 섹션 블록 간격 조정 */
+    }
+    .title {
+        font-size: 2.2rem; /* 작은 화면에서 제목 크기 조정 */
+        margin-bottom: 2rem;
     }
     .linksRow {
-        gap: 1.5rem; /* 작은 화면에서 링크 간격 조정 */
+        gap: 1.5rem; /* 작은 화면에서 링크 아이템 간격 조정 */
         flex-direction: column; /* 작은 화면에서 링크 세로로 나열 */
         align-items: center; /* 세로 나열 시 아이템 중앙 정렬 */
     }
     .linksRow a {
-        padding: 0.5rem 1rem; /* 작은 화면에서 링크 영역 패딩 추가 */
-        border-radius: 8px; /* 작은 화면에서 링크 영역 테두리 반경 추가 (선택 사항) */
+         padding: 0.6rem 1.2rem; /* 작은 화면에서 링크 영역 패딩 조정 */
+         border-radius: 8px; /* 작은 화면에서 둥근 모서리 유지 */
+         box-shadow: 0 1px 6px rgba(0,0,0,0.1); /* 작은 화면에서 그림자 유지 */
+         background-color: rgba(255,255,255,0.08); /* 작은 화면에서 배경 유지 */
          /* 작은 화면에서 호버 효과 다르게 설정 가능 */
-        &:hover {
-             background: none; /* 호버 배경 제거 유지 */
-             color: #FFD6A5; /* 텍스트 색상 변경 유지 */
-        }
+         &:hover {
+             background-color: rgba(255,255,255,0.15);
+             color: #FFD6A5;
+             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+         }
     }
      .emailRow {
          /* 작은 화면에서 이메일 줄 스타일 조정 */
-         flex-direction: column; /* 세로로 나열 */
+         flex-direction: row; /* 작은 화면에서도 가로 나열 유지 (공간 충분 시) */
          align-items: center; /* 중앙 정렬 */
-         gap: 0.5rem; /* 간격 조정 */
+         gap: 0.8rem; /* 간격 조정 */
+         padding: 0.6rem 1.2rem; /* 작은 화면에서 패딩 조정 */
+         border-radius: 8px; /* 작은 화면에서 둥근 모서리 유지 */
+         box-shadow: 0 1px 6px rgba(0,0,0,0.1); /* 작은 화면에서 그림자 유지 */
+         background-color: rgba(255,255,255,0.08); /* 작은 화면에서 배경 유지 */
+          &:hover {
+             background-color: rgba(255,255,255,0.15);
+             color: #FFD6A5;
+             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+         }
      }
+     /* 작은 화면에서 이메일 줄을 세로로 나열하고 싶다면 이 @media 쿼리 안에서 flex-direction: column;으로 오버라이드 */
+     /*
+     @media (max-width: 500px) {
+         .emailRow {
+             flex-direction: column;
+             gap: 0.5rem;
+         }
+         .emailRow img { margin-bottom: 0.5rem; } // 필요시 이미지 아래 마진 추가
+     }
+     */
+
+
     .mapWrap {
-        margin-top: 2rem; /* 작은 화면에서 지도 위 마진 조정 */
-        max-width: 95vw; /* 작은 화면에서 지도 최대 너비 조정 */
+         margin-top: 2.5rem; /* 작은 화면에서 지도 위 마진 조정 */
+         max-width: 95vw; /* 작은 화면에서 지도 최대 너비 조정 */
     }
 }

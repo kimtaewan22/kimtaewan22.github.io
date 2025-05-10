@@ -10,11 +10,11 @@
   animation: fadeIn 1.2s;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1); /* 애니메이션/트랜지션 지속 시간 및 가속도 */
   width: 100vw !important;
   max-width: 100vw !important;
   margin: 0 !important;
-  padding: 0 !important;
+  /* padding: 0 !important; */
   box-sizing: border-box;
 }
 
@@ -73,6 +73,8 @@
   flex-direction: column;
   gap: 0.5rem;
   transition: box-shadow 0.2s;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .infoBlock:hover {
@@ -93,6 +95,9 @@
   color: #6B4F4F;
   font-weight: 400;
   line-height: 1.7;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .period {
@@ -123,3 +128,31 @@
 .link:hover {
   color: #fff;
 } 
+
+@media (max-width: 768px) { /* 화면 너비가 768px 이하일 때 적용 */
+  .infoBlock {
+    padding: 1.2rem 0.1rem; /* <<< 좌우 패딩을 1rem으로 줄임 (필요시 조정) >>> */
+    /* 상하 패딩 (1.2rem)은 그대로 유지하거나 조정 */
+  }
+  .infoBlocks {
+    gap: 1.5rem; /* <<< 간격을 조정하여 더 크게 만듭니다. 필요시 더 크게 조정하세요. >>> */
+  }
+
+  .blockTitle {
+    font-size: 0.8rem; /* <<< 폰트 크기를 줄임 (필요시 더 작게 조정하세요) >>> */
+  }
+  .blockContent {
+    font-size: 0.85rem; /* <<< 폰트 크기를 줄임 (필요시 더 작게 조정하세요) >>> */
+  }
+  .period {
+    font-size: 0.7rem; /* <<< 폰트 크기를 줄임 (필요시 더 작게 조정하세요) >>> */
+  }
+  .paperType {
+    font-size: 0.7rem; /* <<< 폰트 크기를 줄임 (필요시 더 작게 조정하세요) >>> */
+  }
+  .softwareDesc {
+    font-size: 0.7rem; /* <<< 폰트 크기를 줄임 (필요시 더 작게 조정하세요) >>> */
+  }
+  
+
+}
