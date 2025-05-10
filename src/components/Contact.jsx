@@ -23,7 +23,7 @@ const Contact = () => {
     fetchContactInfo();
   }, []);
 
-  Optional: Effect for scroll-based visibility
+  // Optional: Effect for scroll-based visibility
   useEffect(() => {
     const onScroll = () => {
       const contact = document.getElementById('contact');
